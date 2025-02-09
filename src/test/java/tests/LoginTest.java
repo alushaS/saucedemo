@@ -1,30 +1,42 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import constants.IConstants;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+public class LoginTest extends BaseTest {
+    public static final String EMPTY_FIELD_USERNAME_ERROR = "Epic sadface: Username is required";
+    public static final String EMPTY_FIELD_PASSWORD_ERROR = "Epic sadface: Password is required";
+    public static final String INCORRECT_DATA_IN_FIELDS = "Epic sadface: Username and password do not match any user in this service";
 
-    public class LoginTest {
+    @Test
+    public void loginWithEmptyUsernameTest(){
+        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.login("", PASSWORD);
+        Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_USERNAME_ERROR);
 
-        @Test
-        public void checkProductInCart(){
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-            WebDriver driver = new ChromeDriver();
-            driver.get("https://www.saucedemo.com/");
-            driver.findElement(By.xpath("//*[@id='user-name']")).sendKeys("standard_user");
-            driver.findElement(By.xpath("//*[@id='password']")).sendKeys("secret_sauce");
-            driver.findElement(By.xpath("//*[@id='login-button']")).click();
-            String productName = driver.findElement(By.xpath("//div[text()='Sauce Labs Fleece Jacket']")).getText();
-            String expectedProductName = "Sauce Labs Fleece Jacket";
-            driver.findElement(By.name("add-to-cart-sauce-labs-fleece-jacket")).click();
-            driver.findElement(By.className("shopping_cart_link")).click();
-            String expectedProductPrice = "$49.99";
-            String productPrice = driver.findElement(By.className("inventory_item_price")).getText();
-            Assert.assertEquals(productName,expectedProductName);
-            Assert.assertEquals(productPrice,expectedProductPrice);
-            driver.quit();
-        }
     }
+
+    @Test
+    public void loginWithEmptyPasswordTest(){
+        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.login(USER_NAME, "");
+        Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_PASSWORD_ERROR);
+
+    }
+
+    @Test
+    public void loginWithEmptyFieldsTest(){
+        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.login("", "");
+        Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_USERNAME_ERROR);
+    }
+
+    @Test
+    public void loginWithIncorrectUsernameTest(){
+        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.login("sgffdg", "fdrdgf");
+        Assert.assertEquals(loginPage.getErrorMessageText(), INCORRECT_DATA_IN_FIELDS);
+
+    }
+}
