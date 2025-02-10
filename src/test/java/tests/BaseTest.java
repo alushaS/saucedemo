@@ -2,8 +2,6 @@ package tests;
 
 import constants.IConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.logging.Log;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -19,11 +17,9 @@ public class BaseTest implements ITestsConstants, IConstants {
     ProductsPage productsPage;
     CartPage cartPage;
     HeaderPage headerPage;
-    CheckoutStepOnePage checkoutStepOnePage;
-    CheckOutCompletePage checkOutCompletePage;
-    CheckoutStepTwoPage checkoutStepTwoPage;
-
-
+    CheckoutPage checkoutPage;
+    CheckoutCompletePage checkoutCompletePage;
+    CheckoutOverviewPage checkoutOverviewPage;
     @BeforeMethod
     public void initTest(){
         WebDriverManager.chromedriver().setup();
@@ -38,9 +34,9 @@ public class BaseTest implements ITestsConstants, IConstants {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         headerPage = new HeaderPage(driver);
-        checkOutCompletePage = new CheckOutCompletePage(driver);
-        checkoutStepOnePage = new CheckoutStepOnePage(driver);
-        checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
+        checkoutCompletePage = new CheckoutCompletePage(driver);
+        checkoutPage = new CheckoutPage(driver);
+        checkoutOverviewPage = new CheckoutOverviewPage(driver);
     }
 
     @AfterMethod

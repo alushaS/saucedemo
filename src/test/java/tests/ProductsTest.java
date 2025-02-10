@@ -15,13 +15,12 @@ public class ProductsTest extends BaseTest{
     //cartPage.getPrice("productName")
     //Assertions
 
-
     @Test (description = "QA-1 Add product to cart test")
     public void addProductToCartTest(){
         loginPage.openPage(LOGIN_PAGE_URL);
         loginPage.login(USER_NAME,PASSWORD);
         productsPage.addProductToCart(ProductsPage.BOLT_T_SHIRT_ID);
-        headerPage.clickCartButton();
+        headerPage.openCart();
         Assert.assertEquals(cartPage.getProductName(), SAUCE_LABS_BOLT_T_SHIRT);
     }
 

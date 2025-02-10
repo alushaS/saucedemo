@@ -12,8 +12,6 @@ public class ProductsPage extends HeaderPage{
 
     public static final By BOLT_T_SHIRT_ID = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
     public static final By PRODUCT_FILTER = By.xpath("//*[@data-test='product-sort-container']");
-
-
     public ProductsPage(WebDriver driver) {
         super(driver);
     }

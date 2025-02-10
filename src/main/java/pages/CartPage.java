@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CartPage extends HeaderPage{
-
     public static final By ADDED_PRODUCT = By.xpath("//*[@data-test='inventory-item-name']");
     public static final By REMOVE_BOLT_T_SHIRT = By.id("remove-sauce-labs-bolt-t-shirt");
     public static final By CONTINUE_SHOPPING_BUTTON = By.id("continue-shopping");
@@ -22,7 +21,7 @@ public class CartPage extends HeaderPage{
         return driver.findElement(ADDED_PRODUCT).getText();
     }
 
-    public void removeProduct(By product){
+    public void removeProductFromCart(By product){
         driver.findElement(product).click();
     }
 
@@ -38,11 +37,4 @@ public class CartPage extends HeaderPage{
     public void clickCheckoutButton(){
         driver.findElement(CHECKOUT_BUTTON).click();
     }
-
-
-
-
-
-
-
 }

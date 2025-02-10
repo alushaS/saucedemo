@@ -11,10 +11,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithEmptyUsernameTest(){
-        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.openPage(LOGIN_PAGE_URL);
         loginPage.login("", PASSWORD);
         Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_USERNAME_ERROR);
-
     }
 
     @Test
@@ -22,7 +21,6 @@ public class LoginTest extends BaseTest {
         loginPage.openPage(IConstants.LOGIN_PAGE_URL);
         loginPage.login(USER_NAME, "");
         Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_PASSWORD_ERROR);
-
     }
 
     @Test

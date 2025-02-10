@@ -13,9 +13,6 @@ public class LoginPage extends BasePage{
     public static final By PASSWORD_INPUT = By.xpath("//*[@data-test='password']");
     public static final By LOGIN_BUTTON = By.id("login-button");
     public static final By ERROR_MESSAGE = By.xpath("//*[@data-test='error']");
-
-
-
     public void login(String userName, String password){
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -25,7 +22,4 @@ public class LoginPage extends BasePage{
     public String getErrorMessageText(){
         return driver.findElement(ERROR_MESSAGE).getText();
     }
-
-
-
 }
