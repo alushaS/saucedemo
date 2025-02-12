@@ -20,8 +20,9 @@ public class BaseTest implements ITestsConstants, IConstants {
     CheckoutPage checkoutPage;
     CheckoutCompletePage checkoutCompletePage;
     CheckoutOverviewPage checkoutOverviewPage;
+
     @BeforeMethod
-    public void initTest(){
+    public void initTest() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -29,7 +30,7 @@ public class BaseTest implements ITestsConstants, IConstants {
         initPages();
     }
 
-    public void initPages(){
+    public void initPages() {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
@@ -40,7 +41,7 @@ public class BaseTest implements ITestsConstants, IConstants {
     }
 
     @AfterMethod
-    public void endTest(){
+    public void endTest() {
         driver.quit();
     }
 }

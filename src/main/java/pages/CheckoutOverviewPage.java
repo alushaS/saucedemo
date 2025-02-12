@@ -9,7 +9,7 @@ public class CheckoutOverviewPage extends HeaderPage{
     public CheckoutOverviewPage(WebDriver driver) {
         super(driver);
     }
-    public void openCheckoutCompletePage(){
+    public void openCheckoutCompletePage() {
         driver.findElement(FINISH_BUTTON).click();
     }
 }

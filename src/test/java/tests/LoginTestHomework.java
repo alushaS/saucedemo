@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
     public class LoginTestHomework {
 
         @Test
-        public void checkProductInCart(){
+        public void checkProductInCart() {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             WebDriver driver = new ChromeDriver();
             driver.get("https://www.saucedemo.com/");
