@@ -20,7 +20,8 @@ public class CheckoutPage extends HeaderPage{
         driver.findElement(POSTAL_CODE).sendKeys(zipCode);
     }
 
-    public void openCheckoutPage() {
+    public CheckoutOverviewPage openCheckoutPage() {
         driver.findElement(CONTINUE_BUTTON).click();
+        return this.openCheckoutPage();
     }
 }

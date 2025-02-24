@@ -28,8 +28,9 @@ public class CartPage extends HeaderPage{
         return driver.findElement(ADDED_PRODUCT).getText();
     }
 
-    public void removeProductFromCart(String productName) {
+    public HeaderPage removeProductFromCart(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON, productName))).click();
+        return this;
     }
 
     public List<WebElement> getProducts() {
@@ -37,8 +38,9 @@ public class CartPage extends HeaderPage{
         return driver.findElements(PRODUCTS_LIST);
     }
 
-    public void clickContinueButton() {
+    public CartPage clickContinueButton() {
         driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
+        return this;
     }
 
     public void clickCheckoutButton() {

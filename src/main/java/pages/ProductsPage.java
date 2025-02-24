@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -22,10 +21,11 @@ public class ProductsPage extends HeaderPage{
         super(driver);
     }
 
-    public void addProductToCart(String... productNames) {
+    public ProductsPage addProductToCart(String... productNames) {
         for (String productName : productNames) {
             driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).click();
         }
+        return this;
     }
 
     public boolean isAddToCartButtonDisplayed(String productName) {
@@ -48,6 +48,6 @@ public class ProductsPage extends HeaderPage{
     }
 
     public String getLowestPrice() {
-       return driver.findElements(PRICE_LIST).getFirst().getText();
+       return driver.findElements(PRICE_LIST).get(0).getText();
     }
 }
