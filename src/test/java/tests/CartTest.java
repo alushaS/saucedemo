@@ -12,19 +12,19 @@ public class CartTest extends Preconditions{
                 .waitForPageOpened()
                 .login(userWithCorrectCredentials)
                 .addProductToCart(SAUCE_LABS_BOLT_T_SHIRT);
-        cartPage.openCart();
-        cartPage.removeProductFromCart(SAUCE_LABS_BOLT_T_SHIRT);
+        cartPage.openCart()
+                .removeProductFromCart(SAUCE_LABS_BOLT_T_SHIRT);
         Assert.assertTrue(cartPage.getProducts().isEmpty());
     }
 
-    @Test
+    @Test (description = "Remove item from cart test")
     public void removeItemFromCartTest() {
         loginPage.openPage(LOGIN_PAGE_URL);
         loginPage
                 .login(userWithCorrectCredentials)
                 .addProductToCart(SAUCE_LABS_BACKPACK);
-        cartPage.openCart();
-        cartPage.removeProductFromCart(SAUCE_LABS_BACKPACK);
+        cartPage.openCart()
+                .removeProductFromCart(SAUCE_LABS_BACKPACK);
         Assert.assertFalse(cartPage.isProductDisplayed(SAUCE_LABS_BACKPACK));
     }
 
@@ -34,10 +34,10 @@ public class CartTest extends Preconditions{
         loginPage
                 .openPage(LOGIN_PAGE_URL);
         loginPage
-                .login(userWithCorrectCredentials);
-        productsPage.addProductToCart(SAUCE_LABS_BOLT_T_SHIRT);
-        cartPage.openCart();
-        cartPage.clickContinueButton();
+                .login(userWithCorrectCredentials)
+                .addProductToCart(SAUCE_LABS_BOLT_T_SHIRT);
+        cartPage.openCart()
+                .clickContinueButton();
         Assert.assertEquals(driver.getCurrentUrl(), PRODUCTS_PAGE_URL);
     }
 }
