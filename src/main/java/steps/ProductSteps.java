@@ -8,27 +8,27 @@ import pages.LoginPage;
 import pages.ProductsPage;
 
 public class ProductSteps {
-//    private LoginPage loginPage;
-//    private ProductsPage productsPage;
-//
-//    public ProductSteps(WebDriver driver) {
-//        loginPage = new LoginPage(driver);
-//        productsPage = new ProductsPage(driver);
-//    }
-//
-//    @Step("Login and add product to cart")
-//    public ProductSteps loginAndAddProductToCart(String username, String password, String productName) {
-//        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
-//        loginPage.login(username, password);
-//        productsPage.addProductToCart(productName);
-//        return this;
-//    }
-//
-//    @Step("Login and add product to cart")
-//    public ProductSteps loginAndAddProductToCart(User user, String productName) {
-//        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
-//        loginPage.login(user);
-//        productsPage.addProductToCart(productName);
-//        return this;
-//    }
+    private LoginPage loginPage;
+    private ProductsPage productsPage;
+
+    public ProductSteps(WebDriver driver) {
+        loginPage = new LoginPage(driver);
+        productsPage = new ProductsPage(driver);
+    }
+
+    @Step("Login and add product to cart")
+    public ProductSteps loginAndAddProductToCart(String username, String password, String productName) {
+        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.login(username, password);
+        productsPage.addProductToCart(productName);
+        return this;
+    }
+
+    @Step("Login and add product to cart")
+    public ProductSteps loginAndAddProductToCart(User user, String productName) {
+        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
+        loginPage.login(user);
+        productsPage.addProductToCart(productName);
+        return this;
+    }
 }

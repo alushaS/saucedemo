@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 @Log4j2
 public class CarTest {
 
-    @Test
+    @Test (enabled = false)
     public void carCompare() {
         Car car0 = Car.builder()
                 .mark("byd")

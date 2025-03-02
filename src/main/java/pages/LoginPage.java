@@ -54,7 +54,15 @@ public class LoginPage extends BasePage{
         driver.findElement(USERNAME_INPUT).sendKeys(user.getUserName());
         driver.findElement(PASSWORD_INPUT).sendKeys(user.getPassword());
         driver.findElement(LOGIN_BUTTON).click();
-        log.info(String.format("User logged in successfully with username "+ user.getUserName()));
+        log.info(String.format("User logged in with username "+ user.getUserName()));
+        return new ProductsPage(driver);
+    }
+
+    public ProductsPage login(String username, String password) {
+        driver.findElement(USERNAME_INPUT).sendKeys(username);
+        driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        driver.findElement(LOGIN_BUTTON).click();
+        log.info(String.format("User Registered with data: username is %s", username));
         return new ProductsPage(driver);
     }
 

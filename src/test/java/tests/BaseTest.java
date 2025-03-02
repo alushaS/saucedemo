@@ -17,6 +17,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
+import steps.CartSteps;
+import steps.LoginSteps;
+import steps.ProductSteps;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,6 +35,9 @@ public class BaseTest implements ITestsConstants, IConstants {
     CheckoutCompletePage checkoutCompletePage;
     CheckoutOverviewPage checkoutOverviewPage;
     LoginPageFactory loginPageFactory;
+    ProductSteps productSteps;
+    LoginSteps loginSteps;
+    CartSteps cartSteps;
 
 
 //    @BeforeMethod
@@ -67,6 +73,9 @@ public class BaseTest implements ITestsConstants, IConstants {
         checkoutPage = new CheckoutPage(driver);
         checkoutOverviewPage = new CheckoutOverviewPage(driver);
         loginPageFactory = new LoginPageFactory(driver);
+        productSteps = new ProductSteps(driver);
+        loginSteps = new LoginSteps(driver);
+        cartSteps = new CartSteps(driver);
     }
 
     @AfterMethod (alwaysRun = true)

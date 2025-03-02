@@ -14,29 +14,25 @@ public class LoginTest extends Preconditions {
 
     @Test (description = "Login with empty username test")
     public void loginWithEmptyUsernameTest() {
-        loginPage.openPage(LOGIN_PAGE_URL);
-        loginPage.login(userWithEmptyUsername);
-        Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_USERNAME_ERROR);
+        loginSteps.loginAndWaitForPageOpened(userWithEmptyUsername);
+        Assert.assertEquals(loginPage.getErrorMessageText(), "EMPTY_FIELD_USERNAME_ERROR");
     }
 
     @Test (description = "Login with empty password test")
     public void loginWithEmptyPasswordTest() {
-        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
-        loginPage.login(userWithEmptyPassword);
+        loginSteps.loginAndWaitForPageOpened(userWithEmptyPassword);
         Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_PASSWORD_ERROR);
     }
 
     @Test (description = "Login with empty fields test")
     public void loginWithEmptyFieldsTest() {
-        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
-        loginPage.login(userWithEmptyFields);
+        loginSteps.loginAndWaitForPageOpened(userWithEmptyFields);
         Assert.assertEquals(loginPage.getErrorMessageText(), EMPTY_FIELD_USERNAME_ERROR);
     }
 
     @Test (description = "Login with incorrect username test")
     public void loginWithIncorrectUsernameTest() {
-        loginPage.openPage(IConstants.LOGIN_PAGE_URL);
-        loginPage.login(userWithIncorrectFields);
+        loginSteps.loginAndWaitForPageOpened("kskjg", PASSWORD);
         Assert.assertEquals(loginPage.getErrorMessageText(), INCORRECT_DATA_IN_FIELDS);
     }
 

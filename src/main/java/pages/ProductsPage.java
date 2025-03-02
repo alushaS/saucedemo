@@ -88,12 +88,13 @@ public class ProductsPage extends HeaderPage{
     /**
      * Sets prices from high to low.
      */
-    public void setPricesFromHighToLow() {
+    public ProductsPage setPricesFromHighToLow() {
         Select select = new Select(driver.findElement(PRODUCT_FILTER));
         List<WebElement> optionsList = select.getOptions();
         WebElement highToLowOption = optionsList.get(2);
         highToLowOption.click();
         log.info("Prices were set from high to low");
+        return this;
     }
 
     /**
