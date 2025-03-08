@@ -6,40 +6,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-/**
- * The type Login page.
- */
 @Log4j2
 public class LoginPage extends BasePage{
 
-    /**
-     * The constant USERNAME_INPUT.
-     */
     public static final By USERNAME_INPUT = By.xpath("//*[@data-test='username']");
-    /**
-     * The constant PASSWORD_INPUT.
-     */
     public static final By PASSWORD_INPUT = By.xpath("//*[@data-test='password']");
-    /**
-     * The constant LOGIN_BUTTON.
-     */
     public static final By LOGIN_BUTTON = By.id("login-button");
-    /**
-     * The constant ERROR_MESSAGE.
-     */
     public static final By ERROR_MESSAGE = By.xpath("//*[@data-test='error']");
 
-    /**
-     * Instantiates a new Login page.
-     *
-     * @param driver the driver
-     */
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -58,6 +39,13 @@ public class LoginPage extends BasePage{
         return new ProductsPage(driver);
     }
 
+    /**
+     * Login products page.
+     *
+     * @param username the username
+     * @param password the password
+     * @return the products page
+     */
     public ProductsPage login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -72,8 +60,9 @@ public class LoginPage extends BasePage{
      * @return the error message text
      */
     public String getErrorMessageText() {
-        log.info("Error message displayed: " + driver.findElement(ERROR_MESSAGE).getText());
-        return driver.findElement(ERROR_MESSAGE).getText();
+        String errorMessage = driver.findElement(ERROR_MESSAGE).getText();
+        log.info("Error message displayed: " + errorMessage);
+        return errorMessage;
      }
 
     /**

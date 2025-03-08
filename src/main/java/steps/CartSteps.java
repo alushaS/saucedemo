@@ -29,4 +29,11 @@ public class CartSteps {
                 .openCheckoutCompletePage();
         return this;
     }
+
+    @Step ("Open cart and click Continue button")
+    public CartSteps openCartAndClickContinue() {
+        cartPage.openCart()
+                .clickContinueButton();
+        return this;
+    }
 }

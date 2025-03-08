@@ -12,54 +12,27 @@ import java.time.Duration;
 
 import static pages.LoginPage.LOGIN_BUTTON;
 
-/**
- * The type Login page factory.
- */
 public class LoginPageFactory extends BasePage{
-
-    /**
-     * The UserName input.
-     */
     @FindBy(xpath = "//*[@data-test='username']")
     WebElement userNameInput;
 
-    /**
-     * The Password input.
-     */
     @FindBy(xpath = "//*[@data-test='password']")
     WebElement passwordInput;
 
-    /**
-     * The Login button.
-     */
     @FindBy(id = "login-button")
     WebElement loginButton;
 
-    /**
-     * The Error message.
-     */
     @FindBy(xpath = "//*[@data-test='error']")
     WebElement errorMessage;
 
-    /**
-     * The Add button.
-     */
     @Getter
     @FindBy(xpath = "//button[contains(.,'Add')]")
     WebElement addButton;
 
-    /**
-     * The Delete button.
-     */
     @Getter
     @FindBy(xpath = "//button[contains(.,'Delete')]")
     WebElement deleteButton;
 
-    /**
-     * Instantiates a new Login page factory.
-     *
-     * @param driver the driver
-     */
     public LoginPageFactory(WebDriver driver) {
         super(driver);
     }

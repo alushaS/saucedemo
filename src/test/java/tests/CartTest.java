@@ -23,8 +23,7 @@ public class CartTest extends Preconditions{
     public void continueShoppingButtonTest() {
         productSteps.loginAndAddProductToCart(userWithCorrectCredentials, SAUCE_LABS_BOLT_T_SHIRT);
         cartSteps.removeProductFromCart(SAUCE_LABS_BOLT_T_SHIRT);
-        cartPage.openCart()
-                .clickContinueButton();
+        cartPage.clickContinueButton();
         Assert.assertEquals(driver.getCurrentUrl(), PRODUCTS_PAGE_URL);
     }
 }

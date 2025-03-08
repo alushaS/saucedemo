@@ -5,34 +5,14 @@ import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * The type Checkout page.
- */
 @Log4j2
 public class CheckoutPage extends HeaderPage{
 
-    /**
-     * The constant FIRST_NAME.
-     */
     public static final By FIRST_NAME = By.id("first-name");
-    /**
-     * The constant LAST_NAME.
-     */
     public static final By LAST_NAME = By.id("last-name");
-    /**
-     * The constant POSTAL_CODE.
-     */
     public static final By POSTAL_CODE = By.id("postal-code");
-    /**
-     * The constant CONTINUE_BUTTON.
-     */
     public static final By CONTINUE_BUTTON = By.id("continue");
 
-    /**
-     * Instantiates a new Checkout page.
-     *
-     * @param driver the driver
-     */
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
