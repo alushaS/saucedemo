@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
     public class LoginTestHomework {
 
-        @Test
+        @Test (description = "Check product in cart test")
         public void checkProductInCart() {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             WebDriver driver = new ChromeDriver();
